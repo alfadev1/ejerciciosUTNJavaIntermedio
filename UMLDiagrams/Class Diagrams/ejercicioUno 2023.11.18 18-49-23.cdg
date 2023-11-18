@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ejercicioUno">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="com.mycompany.ejerciciouno" visibility="public" xPosition="85.0" yPosition="111.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="materiasAprobadas" type="ArrayList&lt;Materia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="int" name="dni"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="agregarMateriaAprobada" returnType="void" visibility="public">
+          <Argument type="Materia" name="materia"/>
+        </Method>
+        <Method name="getMateriasAprobadas" returnType="ArrayList&lt;Materia&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EjercicioUno" package="com.mycompany.ejerciciouno" visibility="public" xPosition="523.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Inscripcion" package="com.mycompany.ejerciciouno" visibility="public" xPosition="457.0" yPosition="583.0">
+      <Fields>
+        <Field name="alumno" type="Alumno" visibility="private"/>
+        <Field name="materia" type="Materia" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Alumno" name="alumno"/>
+          <Argument type="Materia" name="materia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAlumno" returnType="Alumno" visibility="public"/>
+        <Method name="setAlumno" returnType="void" visibility="public">
+          <Argument type="Alumno" name="alumno"/>
+        </Method>
+        <Method name="getMateria" returnType="Materia" visibility="public"/>
+        <Method name="setMateria" returnType="void" visibility="public">
+          <Argument type="Materia" name="materia"/>
+        </Method>
+        <Method name="aprobada" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Materia" package="com.mycompany.ejerciciouno" visibility="public" xPosition="716.0" yPosition="172.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="correlativas" type="ArrayList&lt;Materia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getCorrelativas" returnType="ArrayList&lt;Materia&gt;" visibility="public"/>
+        <Method name="setCorrelativas" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Materia&gt;" name="correlativas"/>
+        </Method>
+        <Method name="agregarCorrelativa" returnType="void" visibility="public">
+          <Argument type="Materia" name="materia"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="materiasAprobadas" source="com.mycompany.ejerciciouno.Alumno" target="com.mycompany.ejerciciouno.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Materia&gt;"/>
+    <UseRelation source="com.mycompany.ejerciciouno.Materia" target="com.mycompany.ejerciciouno.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mycompany.ejerciciouno.Alumno" target="com.mycompany.ejerciciouno.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="materia" source="com.mycompany.ejerciciouno.Inscripcion" target="com.mycompany.ejerciciouno.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="correlativas" source="com.mycompany.ejerciciouno.Materia" target="com.mycompany.ejerciciouno.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Materia&gt;"/>
+    <UseRelation source="com.mycompany.ejerciciouno.Inscripcion" target="com.mycompany.ejerciciouno.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alumno" source="com.mycompany.ejerciciouno.Inscripcion" target="com.mycompany.ejerciciouno.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mycompany.ejerciciouno.Inscripcion" target="com.mycompany.ejerciciouno.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
